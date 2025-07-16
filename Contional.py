@@ -98,3 +98,4 @@
 prices = [420,318,110]
 finalPrice = [p+(p*0.18) for p in prices]
 print(finalPrice)
+
