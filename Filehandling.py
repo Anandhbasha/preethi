@@ -38,79 +38,79 @@
 # if os.path.exists("abc.txt"):
 #     print("File Found")
 # else:
-#     print("File not found")
+# #     print("File not found")
 
-# # remove
-# if os.path.exists("new.txt"):
-#     os.remove("new.txt")
-# # seek
-# # tell
-with open("py.txt",'r') as file:
-    print(file.tell())
-    print(file.seek(6))
-    print(file.tell())
-    print(file.read())
-
-
-# Reverse
-# userInput = input("Enter the Value")
-# userInput[0] = 1
-# userInput[1] = 0
-# print(userInput[-2])
-# len(userInput)-1 = 2-1 = 1
-# reversed =""
-# for i in range(len(userInput)-1,-1,-1):
-#     reversed+=userInput[i]
-# print(reversed)
-
-# Armstrong
-# # 153-> 1**3+5**3+3**3 = 153
-# userInput1 = input("Enter the Value")
-# total=0
-# for nums in userInput1:
-#     total+=int(nums)**3
-# if total==int(userInput1):
-#     print("Is Armstrong")
-# else:
-#     print("Not a Armstrong")
-
-# Pyramid pattern
-# rows = int(input("Enter Star"))
-# for i in range(1,rows+1):
-#     space = " " * (rows-1)
-#     star = "*" * (2*i-1)
-#     print(space+star)
-    # print(""*(rows-1)+"*"*(2*i-1))
+# # # remove
+# # if os.path.exists("new.txt"):
+# #     os.remove("new.txt")
+# # # seek
+# # # tell
+# with open("py.txt",'r') as file:
+#     print(file.tell())
+#     print(file.seek(6))
+#     print(file.tell())
+#     print(file.read())
 
 
-# n = int(input("Enter Star"))
-# # get input
+# # Reverse
+# # userInput = input("Enter the Value")
+# # userInput[0] = 1
+# # userInput[1] = 0
+# # print(userInput[-2])
+# # len(userInput)-1 = 2-1 = 1
+# # reversed =""
+# # for i in range(len(userInput)-1,-1,-1):
+# #     reversed+=userInput[i]
+# # print(reversed)
 
-# for i in range(n):
-#     # i=1
-#     # i=2
-#     for j in range(n-i-1):
-#         # j=1   
-#         # j=2
-#         # j=3
+# # Armstrong
+# # # 153-> 1**3+5**3+3**3 = 153
+# # userInput1 = input("Enter the Value")
+# # total=0
+# # for nums in userInput1:
+# #     total+=int(nums)**3
+# # if total==int(userInput1):
+# #     print("Is Armstrong")
+# # else:
+# #     print("Not a Armstrong")
+
+# # Pyramid pa*ttern
+# # rows = int(input("Enter Star"))
+# # for i in range(1,rows+1):
+# #     space = " " * (rows-1)
+# #     star = "*" * (2*i-1)
+# #     print(space+star)
+#     # print(""*(rows-1)+"*"*(2*i-1))
 
 
-#         # second time
-#         # j = 1
-#         # j=2
-#         # j=3
-#         # j=4
-#         print(" ",end="")
-#     for k in range(2*i+1):
-#         print("*",end="")
-#     print()
+# # n = int(input("Enter Star"))
+# # # get input
 
-# nested for loop
-# for i in range(6):
-#     print(i)
-#     # i=0
-#     # i=1
-#     # i=2
+# # for i in range(n):
+# #     # i=1
+# #     # i=2
+# #     for j in range(n-i-1):
+# #         # j=1   
+# #         # j=2
+# #         # j=3
+
+
+# #         # second time
+# #         # j = 1
+# #         # j=2
+# #         # j=3
+# #         # j=4
+# #         print(" ",end="")
+# #     for k in range(2*i+1):
+# #         print("*",end="")
+# #     print()
+
+# # nested for loop
+# # for i in range(6):
+# #     print(i)
+# #     # i=0
+# #     # i=1
+# #     # i=2
 #     # i=3
 #     # 
 #     for j in range(i-1,10):
@@ -125,3 +125,14 @@ with open("py.txt",'r') as file:
 #         # j=8
 #         # j=9
 #         print(j)
+n = int(input("Enter number of rows: "))
+
+# for i in range(1, n + 1):
+#     print(" " * (n - i) + "*" * (2 * i - 1))
+
+# Row   Spaces  Stars  Output
+# 1       4      1           *
+# 2       3      3          ***
+# 3       2      5         *****
+# 4       1      7        *******
+# 5       0      9       *********
