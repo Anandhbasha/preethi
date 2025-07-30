@@ -1,55 +1,127 @@
-# class Blueprint of Object
-class Student:
-    def __init__(self,name,age):
-        self.name = name
-        self.age = age
+# # car
+# no_ofWheels = 4
+# no_of_airbags = 5
+# milage = 20
+# color = "red"
 
-    def show(self):
-        print(self.name)
-        print(self.age)
+# def movingForword():
+#     print("Accelaror Pressed")
+
+# def carStopes():
+#     print("Break Appears")
 
 
-S=Student("Xyz",25)
-S.show()
+class car:
+    no_ofWheels = 4
+    no_of_airbags = 5
+    milage = 20
+    color = "red"
+    def movingForword(self):
+        print("Accelaror Pressed")
 
-# Encapsulation
-class BankAccount:
-    def __init__(self):
-        self.__balance=1000
-    def deposit(self,amount):
-        # amount = 5000
-        self.__balance+=amount
-        # self.balance=6000
-    def getBalance(self):
-        return self.__balance
+    def carStopes(self):
+        print("Break Appears")
 
-acc = BankAccount()
-acc.deposit(5000)
-print(acc.getBalance())
+car1 = car()
 
-# inheritance
-class Animal:
-    def speak(self):
-        print("Animal Speaks")
-class Dog(Animal):
-    def bark(self):
-        print("Dog Barks")
 
-d= Dog()
-d.speak()
-d.bark()
+car1.movingForword()
+car2 = car()
+car2.milage= 30
+print("car2 Milage:", car2.milage)
+print("car1 Milage:",car1.milage)
+
+
+# encapsulation
+class Students:
+    __total_marks = 0
+    # private variable
+
+    def set_marks(self,mark):
+        if mark >=0 and mark <=100:
+            Students.__total_marks+=mark
+        else:
+            print("Invalid Mark")
+    def get_mark(self):
+        return Students.__total_marks
+s1 = Students()
+# s1.__total_marks=100
+s1.set_marks(80)
+print(s1.get_mark())
+
+# abstraction
+from abc import ABC,abstractmethod
+class PaymentGateWay(ABC):
+    @abstractmethod
+    def pay(self,amount):
+        pass
+class Gpay(PaymentGateWay):
+    def pay(self, amount):
+        print(f'Paid {amount} via Gpay')
+class Phonepe(PaymentGateWay):
+    def pay(self, amount):
+        print(f'Paid {amount} via phonepe')
+
+# Gpay
+payment = Gpay()
+payment.pay(500)
+
+# Phonepe
+payPhonepe = Phonepe()
+payPhonepe.pay(6000)
+
+
+# inhertence
+class Vehicle:
+    def vehicle(self):
+        _total_marks = 100
+        print("The vehicle is startes")
+class Car(Vehicle):
+    def car(self):
+        print(self._total_marks)
+        print("car is on")
+
+
+c = Car()
+# v = Vehicle()
+# v.vehicle()
+print(c.vehicle())
+
 
 # polymorphism
-class Bird:
-    def fly(self):
-        print("Bird Flies")
-class aeroplane:
-    def fly(self):
-        print("Aeroplane Flies")
 
-def lifting(obj):
-    obj.fly()
+# method overloading
+class Calculator:
+    def add(self,a=0,b=0,c=0):
+        res = a+b+c
+        print(res)
 
-lifting(Bird())
-lifting(aeroplane())
+calc = Calculator()
+calc.add(10,5,6)
+calc.add(10,5)
+calc.add()
 
+# overWriting
+
+class Resturant:
+    def place_order(self):
+        print("order Placed from General Res")
+class VegResturant(Resturant):
+    def place_order(self):
+        print("order Placed from General VegResturant")
+class NonVegResturant(Resturant):
+    def place_order(self):
+        print("order Placed from General NonVegResturant")
+
+
+def order(res:Resturant):
+    res.place_order()
+
+order(NonVegResturant())
+order(VegResturant())
+order(Resturant())
+
+# private variable
+# __totalmarks
+# protect
+# _total marks
