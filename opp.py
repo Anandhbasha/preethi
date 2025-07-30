@@ -74,7 +74,7 @@ payPhonepe.pay(6000)
 # inhertence
 class Vehicle:
     def vehicle(self):
-        _total_marks = 100
+        self._total_marks = 100
         print("The vehicle is startes")
 class Car(Vehicle):
     def car(self):
@@ -83,9 +83,8 @@ class Car(Vehicle):
 
 
 c = Car()
-# v = Vehicle()
-# v.vehicle()
-print(c.vehicle())
+c.vehicle()
+c.car()
 
 
 # polymorphism
