@@ -113,74 +113,154 @@
 #         print("order Placed from General NonVegResturant")
 
 
-# def order(res:Resturant):
-#     res.place_order()
+# # def order(res:Resturant):
+# #     res.place_order()
 
-# order(NonVegResturant())
-# order(VegResturant())
-# order(Resturant())
+# # order(NonVegResturant())
+# # order(VegResturant())
+# # order(Resturant())
 
-# # private variable
-# # __totalmarks
-# # protect
-# # _total marks
+# # # private variable
+# # # __totalmarks
+# # # protect
+# # # _total marks
 
 
-# # Multiple
+# # # Multiple
+# # class A:
+# #     pass
+# # class B:
+# #     pass
+# # class C:
+# #     pass
+# # class d(A,B,C):
+# #     pass
+
+# class Camera:
+#     def allowCam(self):
+#         print("Allow access")
+# class Phone:
+#     def accesContact(self):
+#         print("Allow contact")
+# class Microphone:
+#     def accessMick(self):
+#         print("Allow mike")
+# class Smartphone(Camera,Phone,Microphone):
+#     def installApp(self):
+#         print("App Installed")
+
+# mobile = Smartphone()
+# mobile.accessMick()
+# mobile.allowCam()
+# mobile.accesContact()
+# mobile.installApp()
+
+
+
+# # compostion
+# class Doctor:
+#     def __init__(self,name):
+#         self.name = name
+#     def treat(self):
+#         print(f'Dr Name is{self.name}')
+# class Patient:
+#     def __init__(self,name):
+#         self.name = name
+#     def suffer(self):
+#         print(f'Patient name is{self.name}')
+# class Hospital:
+#     def __init__(self,doctor,patient):
+#         self.doctor = doctor
+#         self.patient = patient
+#     def treatment(self):
+#         print("Treatment Starts in Hospital")
+#         self.patient.suffer()
+#         self.doctor.treat()
+
+# doc = Doctor("xyz")
+# pat1 = Patient("abc")
+
+
+# hos1 = Hospital(doc,pat1)
+# hos1.treatment()
+
 # class A:
-#     pass
-# class B:
-#     pass
-# class C:
-#     pass
-# class d(A,B,C):
-#     pass
-
-class Camera:
-    def allowCam(self):
-        print("Allow access")
-class Phone:
-    def accesContact(self):
-        print("Allow contact")
-class Microphone:
-    def accessMick(self):
-        print("Allow mike")
-class Smartphone(Camera,Phone,Microphone):
-    def installApp(self):
-        print("App Installed")
-
-mobile = Smartphone()
-mobile.accessMick()
-mobile.allowCam()
-mobile.accesContact()
-mobile.installApp()
+#     def hello(self):
+#         print("Hello")
 
 
+# s = A()
+# s.hello()
 
-# compostion
-class Doctor:
-    def __init__(self,name):
+# A.hello(s)
+
+# # static method
+# class Calc:
+#     # @staticmethod
+#     def add(a,b):
+#         return a+b
+#     def sub(a,b):
+#         return a-b
+#     def mul(a,b):
+#         return a*b
+
+# print("Add:",Calc.add(10,5))
+# print("Sub:",Calc.sub(10,5))
+# print("mul:",Calc.mul(10,5))
+
+
+# # cls method
+# class Member:
+#     count = 0
+#     def __init__(self,name):
+#         self.name = name
+#         Member.count+=1    
+#     def total_members(cls):
+#         print("Total Members :",cls.count)
+
+# m = Member("abc")
+# m1 = Member("xyz")
+
+# Member.total_members()
+
+
+# # without
+# class Studnet:
+#     def __init__(self,name,course,Fees):
+#         self.name = name
+#         self.course= course
+#         self.Fees = Fees
+# s1 = Studnet("xyz","Python","10000")
+# s2 = Studnet("abc","Java","12000")
+
+# withClass
+# factory
+class Students:
+    def __init__(self,name,course,fees):
         self.name = name
-    def treat(self):
-        print(f'Dr Name is{self.name}')
-class Patient:
-    def __init__(self,name):
-        self.name = name
-    def suffer(self):
-        print(f'Patient name is{self.name}')
-class Hospital:
-    def __init__(self,doctor,patient):
-        self.doctor = doctor
-        self.patient = patient
-    def treatment(self):
-        print("Treatment Starts in Hospital")
-        self.patient.suffer()
-        self.doctor.treat()
-
-doc = Doctor("xyz")
-pat1 = Patient("abc")
+        self.course= course
+        self.fees = fees
+    @classmethod
+    def create_python(cls,name):
+        return cls(name,"Python",10000)
+    @classmethod
+    def create_java(cls,name):
+        return cls(name,"Java",12000)
 
 
-hos1 = Hospital(doc,pat1)
-hos1.treatment()
+stud1 = Students.create_python("abc")
+stud2 = Students.create_java("xyz")
+
+print(stud1.name,stud1.course,stud1.fees)
+print(stud2.name,stud2.course,stud2.fees)
+
+
+
+'''
+Module
+'''
+from functions import number_to_words,num
+
+print(number_to_words(num))
+
 
