@@ -21,13 +21,13 @@ s2 = pd.Series([10,20,30,40],index=["a","b","c","d"])
 # print(s2['a'])
 
 # dataframe
-data = {
-    "Name":["xyz","abc","def"],
-    "age":[20,30,32],
-    "city":["CBE","Salem","Erode"]
-}
+# data = {
+#     "Name":["xyz","abc","def"],
+#     "age":[20,30,32],
+#     "city":["CBE","Salem","Erode"]
+# }
 
-df = pd.DataFrame(data)
+# df = pd.DataFrame(data)
 # df = pd.DataFrame(data,index=["first","second","third"])
 # print(df)
 
@@ -37,7 +37,7 @@ df = pd.DataFrame(data)
 # print(df.columns)
 # print(df.dtypes)
 
-df['email'] = ["abc@gmail.com","xyz@gmail.com","def@gmail.com"]
+# df['email'] = ["abc@gmail.com","xyz@gmail.com","def@gmail.com"]
 
 # print(df)
 
@@ -46,7 +46,38 @@ df['email'] = ["abc@gmail.com","xyz@gmail.com","def@gmail.com"]
 # print(df.loc[0,2,'Name'])
 # print(df.loc[0:2,"Name"])
 # print(df.loc[0])
-print(df.iloc[0:2,0:2])
-
-df.to_csv("out.csv" ,index=True)
+# print(df.iloc[0:2,0:2])
+# 
+# df.to_csv("out.csv" ,index=True)
 # df.to_csv("output.csv" ,index=False)
+
+# print(df[(df['age']>20)])
+
+
+data = {
+    "Name":["xyz","abc","def"],
+    "age":[20,30,32],
+    "city":["CBE","Salem","Erode"]
+}
+
+df = pd.DataFrame(data)
+# scalar
+# print(df.at[0,'email'])
+# print(df.iat[0,0])
+
+
+df['email'] = ["abc@gmail.com","xyz@gmail.com","def@gmail.com"]
+# Multiple condition
+# print(df[(df['age']>20) & (df['email']=="def@gmail.com")])
+
+
+# isin()
+# print(df[(df['city'].isin(['Salem','CBE']))])
+
+# query
+# print(df.query("age>30 and city=='Erode'"))
+
+df.to_excel("newdata.xlsx",sheet_name="Students" ,index=False)
+
+readData =pd.read_excel('newdata.xlsx')
+print(readData)
