@@ -23,16 +23,24 @@ def add():
         return redirect(url_for("index"))
     return render_template("add.html")
 
-# @app.route('/edit/<int:stu_id>',methods=["GET","POST"])
-# def edit(stu_id):
-#     stud = next((s for s in studentList if s['id']==stu_id),None)
-#     if not stud:
-#         return "Student is not found"
-#     if request.method=="POST":
-#         stud['name'] = request.form['name']
-#         stud['city'] = request.form['city']
-#         return redirect(url_for("index"))
-#     return render_template('edit.html',stud = stud)
+@app.route('/edit/<int:stu_id>',methods=["GET","POST"])
+def edit(stu_id):
+    stud = next((s for s in studentList if s['id']==stu_id),None)
+    if not stud:
+        return "Student is not found"
+    if request.method=="POST":
+        stud['name'] = request.form['name']
+        stud['city'] = request.form['city']
+        return redirect(url_for("index"))
+    return render_template('edit.html',stud = stud)
+
+@app.route('/delete/<int:stu_id>')
+def deleteInfo(stu_id):
+    global studentList
+    studentList = [s for s in studentList if s['id']!=stu_id]
+    return redirect(url_for("index"))
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+

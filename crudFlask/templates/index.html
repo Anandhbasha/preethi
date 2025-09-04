@@ -18,6 +18,7 @@
             <td>{{stu.id}}</td>
             <td>{{stu.name}}</td>
             <td>{{stu.city}}</td>
+            <td><a href="{{ url_for('deleteInfo', stu_id=stu.id)}}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
