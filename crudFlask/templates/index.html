@@ -6,21 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Students List</h2>
+    <h2>Students List</h2> <!-- Heading for the page -->
+
+    <!-- Table to display list of students -->
     <table>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>City</th>
+            <!-- Table header row -->
+            <th>ID</th>   <!-- Column for Student ID -->
+            <th>Name</th> <!-- Column for Student Name -->
+            <th>City</th> <!-- Column for Student City -->
         </tr>
+
+        <!-- Jinja for loop: Loop through each student object passed from Flask -->
         {% for stu in student %}
         <tr>
+            <!-- Print student ID -->
             <td>{{stu.id}}</td>
+            <!-- Print student Name -->
             <td>{{stu.name}}</td>
+            <!-- Print student City -->
             <td>{{stu.city}}</td>
+            <!-- Link to delete a student, passes stu.id to the delete route -->
             <td><a href="{{ url_for('deleteInfo', stu_id=stu.id)}}">Delete</a></td>
         </tr>
-        {% endfor %}
+        {% endfor %} <!-- End of loop -->
     </table>
 </body>
 </html>
