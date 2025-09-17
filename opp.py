@@ -1,17 +1,17 @@
-# # # car
-# # no_ofWheels = 4
-# # no_of_airbags = 5
-# # milage = 20
-# # color = "red"
+# car
+# no_ofWheels = 4
+# no_of_airbags = 5
+# milage = 20
+# color = "red"
 
-# # def movingForword():
-# #     print("Accelaror Pressed")
+# def movingForword():
+#     print("Accelaror Pressed")
 
-# # def carStopes():
-# #     print("Break Appears")
+# def carStopes():
+#     print("Break Appears")
 
 
-# class car:
+# class Car:
 #     no_ofWheels = 4
 #     no_of_airbags = 5
 #     milage = 20
@@ -22,11 +22,11 @@
 #     def carStopes(self):
 #         print("Break Appears")
 
-# car1 = car()
+# car1 = Car()
 
 
 # car1.movingForword()
-# car2 = car()
+# car2 = Car()
 # car2.milage= 30
 # print("car2 Milage:", car2.milage)
 # print("car1 Milage:",car1.milage)
@@ -46,10 +46,10 @@
 #         return Students.__total_marks
 # s1 = Students()
 # # s1.__total_marks=100
-# s1.set_marks(80)
+# s1.set_marks(90)
 # print(s1.get_mark())
 
-# # abstraction
+# abstraction
 # from abc import ABC,abstractmethod
 # class PaymentGateWay(ABC):
 #     @abstractmethod
@@ -74,11 +74,11 @@
 # # inhertence
 # class Vehicle:
 #     def vehicle(self):
-#         self._total_marks = 100
+#         self._total_airbags = 5
 #         print("The vehicle is startes")
 # class Car(Vehicle):
 #     def car(self):
-#         print(self._total_marks)
+#         print(self._total_airbags)
 #         print("car is on")
 
 
@@ -102,23 +102,23 @@
 
 # # overWriting
 
-# class Resturant:
-#     def place_order(self):
-#         print("order Placed from General Res")
-# class VegResturant(Resturant):
-#     def place_order(self):
-#         print("order Placed from General VegResturant")
-# class NonVegResturant(Resturant):
-#     def place_order(self):
-#         print("order Placed from General NonVegResturant")
+class Resturant:
+    def place_order(self):
+        print("order Placed from General Res")
+class VegResturant(Resturant):
+    def place_order(self):
+        print("order Placed from General VegResturant")
+class NonVegResturant(Resturant):
+    def place_order(self):
+        print("order Placed from General NonVegResturant")
 
 
-# # def order(res:Resturant):
-# #     res.place_order()
+def order(res:Resturant):
+    res.place_order()
 
-# # order(NonVegResturant())
-# # order(VegResturant())
-# # order(Resturant())
+order(NonVegResturant())
+order(VegResturant())
+order(Resturant())
 
 # # # private variable
 # # # __totalmarks
@@ -235,32 +235,45 @@
 
 # withClass
 # factory
-class Students:
-    def __init__(self,name,course,fees):
-        self.name = name
-        self.course= course
-        self.fees = fees
-    @classmethod
-    def create_python(cls,name):
-        return cls(name,"Python",10000)
-    @classmethod
-    def create_java(cls,name):
-        return cls(name,"Java",12000)
+# class Students:
+#     def __init__(self,name,course,fees):
+#         self.name = name
+#         self.course= course
+#         self.fees = fees
+#     @classmethod
+#     def create_python(cls,name):
+#         return cls(name,"Python",10000)
+#     @classmethod
+#     def create_java(cls,name):
+#         return cls(name,"Java",12000)
 
 
-stud1 = Students.create_python("abc")
-stud2 = Students.create_java("xyz")
+# stud1 = Students.create_python("abc")
+# stud2 = Students.create_java("xyz")
 
-print(stud1.name,stud1.course,stud1.fees)
-print(stud2.name,stud2.course,stud2.fees)
+# print(stud1.name,stud1.course,stud1.fees)
+# print(stud2.name,stud2.course,stud2.fees)
 
 
 
 '''
 Module
 '''
-from functions import number_to_words,num
+# from functions import number_to_words,num
 
-print(number_to_words(num))
+# print(number_to_words(num))
 
 
+
+
+def debug(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__} with {args}, {kwargs}")
+        return func(*args, **kwargs)
+    return wrapper
+
+@debug
+def add(a, b):
+    return a + b
+
+print(add(5, 10))
